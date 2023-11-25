@@ -1,16 +1,19 @@
-module ip(clock, incIP, endereco, reset);
+module ip(clk, incIP, endereco, reset);
 
-input clock;
-input incIP
-reg [7:0] contador;
+input clk;
+input incIP;
+input reset;
+
 output [7:0] endereco;
+
+reg [7:0] contador;
 
 initial begin
 	contador = 8'b00000000;
 end 
  
 
- always @(posedge clock) begin
+ always @(posedge clk) begin
 	
 	if (reset == 1) contador <= 8'b00000000;
 	

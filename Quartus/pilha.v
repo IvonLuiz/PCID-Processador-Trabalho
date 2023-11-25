@@ -1,8 +1,8 @@
 module Pilha (
     input                   clk,     // Sinal de clock
     input                   reset,   // Sinal de reset
-    input      [WIDTH - 1:0] dado,    // Dado a ser empilhado
-    output reg [WIDTH - 1:0] topo,    // Dado no topo da pilha
+    input      [PROFUNDIDADE - 1:0] dado,    // Dado a ser empilhado
+    output reg [PROFUNDIDADE - 1:0] topo,    // Dado no topo da pilha
     input                   push,    // Sinal para realizar a operação de empilhamento
     input                   pop      // Sinal para realizar a operação de desempilhamento
 );
@@ -13,8 +13,7 @@ module Pilha (
     reg [PROFUNDIDADE - 1:0] tos; // Ponteiro da pilha
     reg [LARGURA - 1:0] pilha [0:(1 << PROFUNDIDADE) - 1]; // Array representando a pilha
 
-	 
-	 
+
     always @(posedge clk) begin
         if (reset)
             tos <= 0;

@@ -1,4 +1,4 @@
-module IR ( clock, loadIR, memIn, endereco, opcode);
+module IR ( clk, loadIR, memIn, endereco, opcode);
 
 input clk;
 input loadIR;

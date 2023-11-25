@@ -15,24 +15,24 @@ begin
 	case (opcode)
 		
 		3'b000:
-			 resultado = OperandA + B;
+			resultado = operando1 + operando2;
 		3'b001:
-			 resultado = OperandA - B;
+			resultado = operando1 - operando2;
 		3'b010:
-			 resultado = OperandA / B;
+			resultado = operando1 / operando2;
 		3'b011:
-			 resultado = OperandA * B;  
+			resultado = operando1 * operando2;  
 		3'b100:
-			 resultado = OperandA & B; 
+			resultado = operando1 & operando2; 
 		3'b101:
-			 resultado = OperandA | B;
+			resultado = operando1 | operando2;
 		3'b110:
-			 resultado = ~OperandA;
+			resultado = ~operando1;
 		3'b111:
-			 resultado = OperandA ^ OperandA;
+			resultado = operando1 ^ operando1;
 		default:
-			 resultado = 0;
-	 endcase
+			resultado = 0;
+	endcase
 end
 
 endmodule
