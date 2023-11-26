@@ -1,4 +1,4 @@
-module ip(clk, incIP, endereco, reset);
+module IP(clk, incIP, endereco, reset);
 
 input clk;
 input incIP;
@@ -11,9 +11,9 @@ reg [7:0] contador;
 initial begin
 	contador = 8'b00000000;
 end 
- 
 
- always @(posedge clk) begin
+
+always @(posedge clk) begin
 	
 	if (reset == 1) contador <= 8'b00000000;
 	
