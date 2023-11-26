@@ -1,0 +1,85 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
+// CREATED		"Sun Nov 26 04:33:17 2023"
+
+module datapath(
+	clk,
+	reset,
+	loadTemp2,
+	loadTemp1,
+	pop,
+	push,
+	din,
+	opcode,
+	resultado,
+	tos11
+);
+
+
+input wire	clk;
+input wire	reset;
+input wire	loadTemp2;
+input wire	loadTemp1;
+input wire	pop;
+input wire	push;
+input wire	[15:0] din;
+input wire	[2:0] opcode;
+output wire	[31:0] resultado;
+output wire	[15:0] tos11;
+
+wire	[15:0] SYNTHESIZED_WIRE_4;
+wire	[15:0] SYNTHESIZED_WIRE_2;
+wire	[15:0] SYNTHESIZED_WIRE_3;
+
+
+
+
+
+Pilha	inst_inst(
+	.clk(clk),
+	.rst(reset),
+	.pop(pop),
+	.push(push),
+	.din(din),
+	.dout(SYNTHESIZED_WIRE_4),
+	.tos(tos));
+
+
+temp	inst_temp1(
+	.clk(clk),
+	.loadTemp(loadTemp1),
+	.reset(reset),
+	.entrada(SYNTHESIZED_WIRE_4),
+	.saida(SYNTHESIZED_WIRE_2));
+
+
+temp	inst_temp2(
+	.clk(clk),
+	.loadTemp(loadTemp2),
+	.reset(reset),
+	.entrada(SYNTHESIZED_WIRE_4),
+	.saida(SYNTHESIZED_WIRE_3));
+
+
+ULA	inst_ULA(
+	.opcode(opcode),
+	.operando1(SYNTHESIZED_WIRE_2),
+	.operando2(SYNTHESIZED_WIRE_3),
+	.resultado(resultado));
+
+
+endmodule
