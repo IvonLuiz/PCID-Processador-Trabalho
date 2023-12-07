@@ -1,12 +1,13 @@
-module Pilha (clk, rst, pop, push, din, dout, tos);
+module Pilha (clk, rst, wren, controle_pilha, din_ULA, din_UC, dout, tos);
 
 // Largura da pilha = 16 e profundidade = 16
 
 input clk;
 input rst;
-input pop;
-input push;
-input [15:0] din;
+input wren;
+input controle_pilha;
+input [15:0] din_UC;
+input [15:0] din_ULA;
 
 output [15:0] dout;
 output [15:0] tos;
@@ -34,12 +35,20 @@ end
 
 always @(*) // Bloco Combinacional
 begin
-    if (push) // escrever
+    if (wren == 1) // escrever
     begin
-        pilha[indice] = din;
-        prox_indice   = indice + 1'b1;
+		if (controle_pilha == 0)
+			begin
+				pilha[indice] = din_UC;
+				prox_indice   = indice + 1'b1;
+			end
+		else
+			begin
+				pilha[indice] = din_ULA;
+				prox_indice   = indice + 1'b1;
+			end
     end
-    else if (pop)  // ler
+    else if (wren == 0)  // ler
     begin
         prox_dout  = pilha[indice - 1'b1];
         prox_indice = indice - 1'b1;

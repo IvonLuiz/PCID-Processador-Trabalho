@@ -3,7 +3,7 @@ module ULA( operando1, operando2, opcode, resultado );
 
 input [15:0] operando1;
 input [15:0] operando2;
-input [15:0] opcode;
+input [4:0] opcode;
 
 output [31:0] resultado;
 
@@ -14,22 +14,35 @@ always@(operando1 or operando2 or opcode)
 begin
 	case (opcode)
 		
-		3'b000:
+		5'b00010:
+			resultado = operando1;
+		5'b00100:
 			resultado = operando1 + operando2;
-		3'b001:
+		5'b00101:
 			resultado = operando1 - operando2;
-		3'b010:
-			resultado = operando1 / operando2;
-		3'b011:
+		5'b00110:
 			resultado = operando1 * operando2;  
-		3'b100:
+		5'b00111:
+			resultado = operando1 / operando2;
+		5'b01000:
 			resultado = operando1 & operando2; 
-		3'b101:
+		5'b01001:
+			resultado = ~(operando1 & operando2); 
+		5'b01010:
 			resultado = operando1 | operando2;
-		3'b110:
-			resultado = ~operando1;
-		3'b111:
+		5'b01011:
 			resultado = operando1 ^ operando1;
+		5'b01100:
+			if (operando1 == operando2) begin
+				resultado = 0;
+			end else if (operando1 > operando2) begin
+				resultado = 1;
+			end else begin
+				resultado = -1;
+			end
+		5'b01101:
+			resultado = ~operando1;
+
 		default:
 			resultado = 0;
 	endcase
