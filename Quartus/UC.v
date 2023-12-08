@@ -3,18 +3,21 @@ input clock,
 input reset,
 input [11:0] inst,
 input [7:0] data_mem,
-output reg [4:0] opcode,
-output reg controle_pilha,
-output reg clock_pilha,
-output reg [4:0] a_rom,
-output reg clock_rom,
-output reg [7:0] data_pilha,
+
 output reg pilha_wren,
 output reg ram_wren,
+output reg controle_pilha,
+output reg clock_pilha,
+output reg clock_rom,
+output reg [4:0] a_rom,
+output reg [7:0] data_pilha,
 output reg [4:0] a_ram,
 output reg clock_ram,
-output reg clock_temp1,
 output reg load_temp1,
+output reg load_temp2,
+output reg clock_temp1,
+output reg clock_temp2,
+output reg [4:0] opcode
 );
 
 //rom é a instrução e ram a data
@@ -29,13 +32,19 @@ parameter	Inicio = 5'b00000,
 				Push_T2 = 5'b01000,
 				Pop = 5'b01001,
 				Pop2 = 5'b01010,
-				Aritmetica = 5'b01011,
+				Aritmetica1 = 5'b01011,
 				Aritmetica2 = 5'b01100,
 				Aritmetica3 = 5'b01101,
 				Aritmetica4 = 5'b01110,
 				Aritmetica5 = 5'b01111,
 				Aritmetica6 = 5'b10000,
-				Encerrar = ;
+				Not1 = 5'b10001,
+				Not2 = 5'b10010,
+				Not3 = 5'b10011,
+				Not4 = 5'b10100,
+				Encerrar = 5'b11111;
+				
+				
 				
 reg [4:0] estado_atual, estado_futuro;
 
@@ -60,30 +69,34 @@ begin
 		Ler_ROM: 			estado_futuro = Decodificar;
 		Decodificar: 		if(inst[15:8] == 0)
 									estado_futuro = Push;
-								if(inst[15:8] == 1)
+								else if(inst[15:8] == 1)
 									estado_futuro = Push_I;
-								if(inst[15:8] == 2)
+								else if(inst[15:8] == 2)
 									estado_futuro = Push_T;
-								if(inst[15:8] == 3)
+								else if(inst[15:8] == 3)
 									estado_futuro = Pop;
-								if(inst[15:8] == 4 || inst[15:8] == 5 || inst[15:8] == 6 || inst[15:8] == 7 || inst[15:8] == 8 || inst[15:8] == 9 || inst[15:8] == 10 || inst[15:8] == 11 || inst[15:8] == 12)
-									estado_futuro = Aritmetica;
-								if(inst[15:8] == 13)
-									estado_futuro = Not;
+								else if(inst[15:8] == 4 || inst[15:8] == 5 || inst[15:8] == 6 || inst[15:8] == 7 || inst[15:8] == 8 || inst[15:8] == 9 || inst[15:8] == 10 || inst[15:8] == 11 || inst[15:8] == 12)
+									estado_futuro = Aritmetica1;
+								else if(inst[15:8] == 13)
+									estado_futuro = Not1;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
 		Push_I: 				estado_futuro = Encerrar;
-		Push_T: 				estado_futuro = Push_T2;,
+		Push_T: 				estado_futuro = Push_T2;
 		Push_T2: 			estado_futuro = Encerrar;
 		Pop: 					estado_futuro = Pop2;
 		Pop2: 				estado_futuro = Encerrar;
-		Aritmetica: 	estado_futuro = Aritmetica2;
+		Aritmetica1: 	estado_futuro = Aritmetica2;
 		Aritmetica2: 	estado_futuro = Aritmetica3;
 		Aritmetica3: 	estado_futuro = Aritmetica4;
 		Aritmetica4: 	estado_futuro = Aritmetica5;
 		Aritmetica5: 	estado_futuro = Aritmetica6;
-		Aritmetica6: 	estado_futuro = Encerrar;		
-		Encerrar: 			estado_futuro = Encerrar;
+		Aritmetica6: 	estado_futuro = Encerrar;	
+		Not1: 		estado_futuro = Not2;
+		Not2: 	estado_futuro = Not3;
+		Not3: 	estado_futuro = Not4;
+		Not4: 	estado_futuro = Encerrar;
+		Encerrar: 		estado_futuro = Encerrar;
 		default: estado_futuro = Inicio;
 	endcase
 end
@@ -162,7 +175,7 @@ begin
 								end
 		Aritmetica3: 
 								begin
-									clock_pilha1 = 1;
+									clock_pilha = 1;
 								end
 		Aritmetica4:
 								begin
@@ -181,7 +194,7 @@ begin
 									pilha_wren = 1;
 									controle_pilha = 1;
 								end
-		Not:
+		Not1:
 								begin
 									pilha_wren = 0;
 									clock_pilha = 1;

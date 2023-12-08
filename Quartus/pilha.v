@@ -7,12 +7,12 @@ input rst;
 input wren;
 input controle_pilha;
 input [15:0] din_UC;
-input [15:0] din_ULA;
+input [31:0] din_ULA;
 
 output [15:0] dout;
 output [15:0] tos;
 
-reg [15:0] pilha[15:0]; // memória
+reg [31:0] pilha[15:0]; // memória
 reg [15:0] indice, prox_indice;
 reg [15:0] dout, prox_dout;
 
