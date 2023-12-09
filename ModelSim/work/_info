@@ -1,0 +1,332 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Code/PCID-trab/aa
+vdatapath
+Z0 !s110 1702092929
+!i10b 1
+!s100 K7]9A5V^dG>A40S9UB8gZ2
+Ii<E@WJB6ECd@<:QI:eU9;0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/Code/PCID-trab/ModelSim
+w1702003121
+8D:/Code/PCID-trab/Quartus/datapath.v
+FD:/Code/PCID-trab/Quartus/datapath.v
+L0 19
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1702092929.000000
+!s107 D:/Code/PCID-trab/Quartus/datapath.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/datapath.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vIP
+R0
+!i10b 1
+!s100 Ii?^TL2HeiznB@MLbL3NE0
+IMJk7bd0AdM9Hl?b75N1:S1
+R1
+R2
+w1700986113
+8D:/Code/PCID-trab/Quartus/IP.v
+FD:/Code/PCID-trab/Quartus/IP.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Code/PCID-trab/Quartus/IP.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/IP.v|
+!i113 1
+R5
+R6
+n@i@p
+vIR
+Z7 !s110 1702092930
+!i10b 1
+!s100 ;AaS__[LmaKH5C]938bJ62
+I3U>Wncb0e9@MMV3Y57_@`3
+R1
+R2
+w1700921171
+8D:/Code/PCID-trab/Quartus/IR.v
+FD:/Code/PCID-trab/Quartus/IR.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z8 !s108 1702092930.000000
+!s107 D:/Code/PCID-trab/Quartus/IR.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/IR.v|
+!i113 1
+R5
+R6
+n@i@r
+vPilha
+R7
+!i10b 1
+!s100 hOO@Da`BYnYeM5]JbYW8[3
+IdNlV2NF97IXP0O_J<TJbC0
+R1
+R2
+w1702086197
+8D:/Code/PCID-trab/Quartus/pilha.v
+FD:/Code/PCID-trab/Quartus/pilha.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 D:/Code/PCID-trab/Quartus/pilha.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/pilha.v|
+!i113 1
+R5
+R6
+n@pilha
+Eram
+Z9 w1700920680
+Z10 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
+Z11 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z12 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R2
+Z13 8D:/Code/PCID-trab/Quartus/RAM.vhd
+Z14 FD:/Code/PCID-trab/Quartus/RAM.vhd
+l0
+L42
+Va@Zekc``FDEPM`So[4W:C1
+!s100 PNojMROHIA0;AjXjS3JNW2
+Z15 OV;C;10.5b;63
+32
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Code/PCID-trab/Quartus/RAM.vhd|
+Z17 !s107 D:/Code/PCID-trab/Quartus/RAM.vhd|
+!i113 1
+Z18 o-work work -2002 -explicit
+Z19 tExplicit 1 CvgOpt 0
+Asyn
+R10
+R11
+R12
+DEx4 work 3 ram 0 22 a@Zekc``FDEPM`So[4W:C1
+l58
+L54
+V4_gaMHzlXoS>EmPC79@dQ3
+!s100 kaH5V@Yj5W^`coiF9fFc63
+R15
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R18
+R19
+Erom
+Z20 w1700920503
+R10
+R11
+R12
+R2
+Z21 8D:/Code/PCID-trab/Quartus/ROM.vhd
+Z22 FD:/Code/PCID-trab/Quartus/ROM.vhd
+l0
+L42
+V5G3IK3aeJTfDg@F5kE=S?0
+!s100 zN7:H>No2Kk;e1k@cF1Pd0
+R15
+32
+Z23 !s110 1702092931
+!i10b 1
+Z24 !s108 1702092931.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Code/PCID-trab/Quartus/ROM.vhd|
+Z26 !s107 D:/Code/PCID-trab/Quartus/ROM.vhd|
+!i113 1
+R18
+R19
+Asyn
+R10
+R11
+R12
+DEx4 work 3 rom 0 22 5G3IK3aeJTfDg@F5kE=S?0
+l56
+L52
+VbkVaXU:0B4o2JJPLc>hVD3
+!s100 QKOHNDKKZ6=R3SzLg2M^Z2
+R15
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R18
+R19
+vTB_datapath
+Z27 !s110 1702092941
+!i10b 1
+!s100 TYbF`<zggPef6DQNPe66M1
+ISDdc@l4EJF45cZ<BLhB<A1
+R1
+R2
+w1702090596
+8D:/Code/PCID-trab/ModelSim/TB_datapath.v
+FD:/Code/PCID-trab/ModelSim/TB_datapath.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z28 !s108 1702092941.000000
+!s107 D:/Code/PCID-trab/ModelSim/TB_datapath.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/ModelSim/TB_datapath.v|
+!i113 1
+R5
+R6
+n@t@b_datapath
+vTB_Pilha
+R27
+!i10b 1
+!s100 XkXC[Wf9_?MT=OZoObh260
+IY0lz<?e>:<5T<Oz3aZ9ok1
+R1
+R2
+w1702092733
+8D:/Code/PCID-trab/ModelSim/TB_pilha.v
+FD:/Code/PCID-trab/ModelSim/TB_pilha.v
+L0 3
+R3
+r1
+!s85 0
+31
+R28
+!s107 D:/Code/PCID-trab/ModelSim/TB_pilha.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/ModelSim/TB_pilha.v|
+!i113 1
+R5
+R6
+n@t@b_@pilha
+vTB_temp
+R27
+!i10b 1
+!s100 <]TY`i=hL@?=9^a8KA>a81
+IB?DHoQhJOo@YVJn:k0@OJ2
+R1
+R2
+w1702092749
+8D:/Code/PCID-trab/ModelSim/TB_temp.v
+FD:/Code/PCID-trab/ModelSim/TB_temp.v
+L0 3
+R3
+r1
+!s85 0
+31
+R28
+!s107 D:/Code/PCID-trab/ModelSim/TB_temp.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/ModelSim/TB_temp.v|
+!i113 1
+R5
+R6
+n@t@b_temp
+vTB_ULA
+R27
+!i10b 1
+!s100 k6GfIT485BaMKR0f]KYL=2
+IQ9in1oZPD>]cGGUgl>IQO2
+R1
+R2
+w1702076605
+8D:/Code/PCID-trab/ModelSim/TB_ULA.v
+FD:/Code/PCID-trab/ModelSim/TB_ULA.v
+L0 3
+R3
+r1
+!s85 0
+31
+R28
+!s107 D:/Code/PCID-trab/ModelSim/TB_ULA.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/ModelSim/TB_ULA.v|
+!i113 1
+R5
+R6
+n@t@b_@u@l@a
+vtemp
+R27
+!i10b 1
+!s100 V`2oljd>2cmaWeUCe3k6^3
+ID^GoU1X3YfjIQceIZdWAH2
+R1
+R2
+w1702084446
+8D:/Code/PCID-trab/Quartus/temp.v
+FD:/Code/PCID-trab/Quartus/temp.v
+L0 1
+R3
+r1
+!s85 0
+31
+R28
+!s107 D:/Code/PCID-trab/Quartus/temp.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/temp.v|
+!i113 1
+R5
+R6
+vUC
+R27
+!i10b 1
+!s100 @Rg>7SRl]m<K71o^@_lTF1
+Il?V@kDQL:l_>@D_lli<So1
+R1
+R2
+w1702000605
+8D:/Code/PCID-trab/Quartus/UC.v
+FD:/Code/PCID-trab/Quartus/UC.v
+L0 1
+R3
+r1
+!s85 0
+31
+R28
+!s107 D:/Code/PCID-trab/Quartus/UC.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/UC.v|
+!i113 1
+R5
+R6
+n@u@c
+vULA
+R0
+!i10b 1
+!s100 Reh0<hHeSL]Jz3Pkmjc1P2
+IUQITYCSQgT>fUkma:4>C63
+R1
+R2
+w1701997653
+8D:/Code/PCID-trab/Quartus/ULA.v
+FD:/Code/PCID-trab/Quartus/ULA.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Code/PCID-trab/Quartus/ULA.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Code/PCID-trab/Quartus/ULA.v|
+!i113 1
+R5
+R6
+n@u@l@a
