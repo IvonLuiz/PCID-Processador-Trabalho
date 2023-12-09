@@ -3,6 +3,7 @@ input clock,
 input reset,
 input [11:0] inst,
 input [7:0] data_mem,
+input controle_ula,
 
 output reg pilha_wren,
 output reg ram_wren,
@@ -42,11 +43,17 @@ parameter	Inicio = 5'b00000,
 				Not2 = 5'b10010,
 				Not3 = 5'b10011,
 				Not4 = 5'b10100,
+				Goto = 5'b10101,
+				Goto2 = 5'b10110,
+				Condicional = 5'b10111,
+				Condicional2 = 5'b11000,
+				Condicional3 = = 5'b11001,
 				Encerrar = 5'b11111;
 				
 				
 				
 reg [4:0] estado_atual, estado_futuro;
+reg [7:0] desvio; 
 
 // reg estado
 always @ (posedge clock)
@@ -79,6 +86,10 @@ begin
 									estado_futuro = Aritmetica1;
 								else if(inst[15:8] == 13)
 									estado_futuro = Not1;
+								else if(inst[15:8] == 14)
+								   estado_futuro = Goto;
+								else if(inst[15:8] == 15 || inst[15:8] == 16 || inst[15:8] == 17 || inst[15:8] == 18 || inst[15:8] == 19)
+									estado_futuro = Condional;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
 		Push_I: 				estado_futuro = Encerrar;
@@ -96,6 +107,14 @@ begin
 		Not2: 	estado_futuro = Not3;
 		Not3: 	estado_futuro = Not4;
 		Not4: 	estado_futuro = Encerrar;
+		Goto:		estado_futuro = Goto2;
+		Goto2:		estado_futuro = Encerrar;
+		Condicional:  	estado_futuro = Condicional2;
+		Condicional2:  	estado_futuro = Condicional3;
+		Condicional3:  	if(controle_ula == 1);
+									estado_futuro = Goto;
+								else:
+									estado_futuro = Encerrar;
 		Encerrar: 		estado_futuro = Encerrar;
 		default: estado_futuro = Inicio;
 	endcase
@@ -115,6 +134,7 @@ begin
 	a_ram = 0;
 	pilha_wren = 0;
 	ram_wren = 0;
+	desvio = 0;
 	case (estado_atual)
 		Ler_ROM:				begin
 									clock_rom = 1;
@@ -215,6 +235,31 @@ begin
 									clock_pilha = 1;
 									pilha_wren = 1;
 									controle_pilha = 1;
+								end
+		Goto:
+								begin
+									a_ram = inst[7:0];
+									ram_wren = 0;
+									clock_ram = 1;
+								end
+		Goto2:
+								begin
+									desvio[7:0] = data_mem[7:0];
+								end
+		Condicional:		
+								begin
+									pilha_wren = 0;
+									clock_pilha = 1;
+								end
+		Condicional2: 	
+								begin
+									load_temp1 = 1;
+									clock_temp1 = 1;
+									clock_pilha = 0;
+								end
+		Condicional3: 	
+								begin
+									opcode[4:0] = inst[11:8];
 								end
 	endcase
 end
