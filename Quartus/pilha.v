@@ -22,7 +22,7 @@ always @(posedge clk) // Bloco Sequencial
 begin
     if (rst)
     begin
-        dout  <= 8'd0;
+        dout  <= 16'd0;
         indice <= 1'b0;
     end
     else
@@ -50,8 +50,16 @@ begin
     end
     else if (wren == 0)  // ler
     begin
-        prox_dout  = pilha[indice - 1'b1];
-        prox_indice = indice - 1'b1;
+        if (indice == 0)
+            begin
+                prox_dout  = pilha[indice];
+                prox_indice = indice;
+            end
+        else
+            begin
+                prox_dout  = pilha[indice - 1'b1];
+                prox_indice = indice - 1'b1;
+            end
     end
     else
     begin
