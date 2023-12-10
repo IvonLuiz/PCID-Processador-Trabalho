@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus Prime"
 // VERSION		"Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
-// CREATED		"Thu Dec 07 23:38:41 2023"
+// CREATED		"Sun Dec 10 12:47:38 2023"
 
 module datapath(
 	reset,
@@ -27,6 +27,7 @@ module datapath(
 	clk_temp1,
 	din_UC,
 	opcode,
+	data_uc,
 	dout,
 	tos
 );
@@ -42,6 +43,7 @@ input wire	load_temp1;
 input wire	clk_temp1;
 input wire	[15:0] din_UC;
 input wire	[4:0] opcode;
+output wire	data_uc;
 output wire	[15:0] dout;
 output wire	[15:0] tos;
 
@@ -86,6 +88,7 @@ ULA	b2v_inst_ula(
 	.opcode(opcode),
 	.operando1(SYNTHESIZED_WIRE_3),
 	.operando2(SYNTHESIZED_WIRE_4),
+	.data_uc(data_uc),
 	.resultado(SYNTHESIZED_WIRE_0));
 
 
