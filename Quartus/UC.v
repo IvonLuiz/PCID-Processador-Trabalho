@@ -1,24 +1,24 @@
 module UC (
-input clock,
-input reset,
-input [11:0] inst,
-input [7:0] data_mem,
-input controle_ula,
+	input clock,
+	input reset,
+	input [11:0] inst,
+	input [7:0] data_mem,
+	input controle_ula,
 
-output reg pilha_wren,
-output reg ram_wren,
-output reg controle_pilha,
-output reg clock_pilha,
-output reg clock_rom,
-output reg [4:0] a_rom,
-output reg [7:0] data_pilha,
-output reg [4:0] a_ram,
-output reg clock_ram,
-output reg load_temp1,
-output reg load_temp2,
-output reg clock_temp1,
-output reg clock_temp2,
-output reg [4:0] opcode
+	output reg pilha_wren,
+	output reg ram_wren,
+	output reg controle_pilha,
+	output reg clock_pilha,
+	output reg clock_rom,
+	output reg [4:0] a_rom,
+	output reg [7:0] data_pilha,
+	output reg [4:0] a_ram,
+	output reg clock_ram,
+	output reg load_temp1,
+	output reg load_temp2,
+	output reg clock_temp1,
+	output reg clock_temp2,
+	output reg [4:0] opcode
 );
 
 //rom é a instrução e ram a data
@@ -43,11 +43,11 @@ parameter	Inicio = 5'b00000,
 				Not2 = 5'b10010,
 				Not3 = 5'b10011,
 				Not4 = 5'b10100,
-				Goto = 5'b10101,
+				Goto1 = 5'b10101,
 				Goto2 = 5'b10110,
-				Condicional = 5'b10111,
+				Condicional1 = 5'b10111,
 				Condicional2 = 5'b11000,
-				Condicional3 = = 5'b11001,
+				Condicional3 = 5'b11001,
 				Encerrar = 5'b11111;
 				
 				
@@ -87,9 +87,9 @@ begin
 								else if(inst[15:8] == 13)
 									estado_futuro = Not1;
 								else if(inst[15:8] == 14)
-								   estado_futuro = Goto;
+								   estado_futuro = Goto1;
 								else if(inst[15:8] == 15 || inst[15:8] == 16 || inst[15:8] == 17 || inst[15:8] == 18 || inst[15:8] == 19)
-									estado_futuro = Condional;
+									estado_futuro = Condicional1;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
 		Push_I: 				estado_futuro = Encerrar;
@@ -107,13 +107,13 @@ begin
 		Not2: 	estado_futuro = Not3;
 		Not3: 	estado_futuro = Not4;
 		Not4: 	estado_futuro = Encerrar;
-		Goto:		estado_futuro = Goto2;
+		Goto1:		estado_futuro = Goto2;
 		Goto2:		estado_futuro = Encerrar;
-		Condicional:  	estado_futuro = Condicional2;
+		Condicional1:  	estado_futuro = Condicional2;
 		Condicional2:  	estado_futuro = Condicional3;
-		Condicional3:  	if(controle_ula == 1);
-									estado_futuro = Goto;
-								else:
+		Condicional3:  	if(controle_ula == 1)
+									estado_futuro = Goto1;
+								else
 									estado_futuro = Encerrar;
 		Encerrar: 		estado_futuro = Encerrar;
 		default: estado_futuro = Inicio;
@@ -236,7 +236,7 @@ begin
 									pilha_wren = 1;
 									controle_pilha = 1;
 								end
-		Goto:
+		Goto1:
 								begin
 									a_ram = inst[7:0];
 									ram_wren = 0;
@@ -246,7 +246,7 @@ begin
 								begin
 									desvio[7:0] = data_mem[7:0];
 								end
-		Condicional:		
+		Condicional1:		
 								begin
 									pilha_wren = 0;
 									clock_pilha = 1;

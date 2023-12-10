@@ -6,7 +6,7 @@ input [15:0] operando2;
 input [4:0] opcode;
 
 output [31:0] resultado;
-output data_uc;
+output reg data_uc;
 
 reg [31:0] resultado;
 
