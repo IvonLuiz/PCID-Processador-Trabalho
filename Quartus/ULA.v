@@ -8,6 +8,24 @@ input [4:0] opcode;
 output [31:0] resultado;
 output reg data_uc;
 
+parameter	Push = 5'b00010,
+				Add = 5'b00100,
+				Sub = 5'b00101,
+				Mul = 5'b00110,
+				Div = 5'b00111,
+				And = 5'b01000,
+				Nand = 5'b01001,
+				Or = 5'b01010,
+				Xor = 5'b01011,
+				Cmp = 5'b01100,
+				Not = 5'b01101,
+				If_eq = 5'b01111,
+				If_gt = 5'b10000,
+				If_lt = 5'b10001,
+				If_ge = 5'b10010,
+				If_le = 5'b10011;
+
+
 reg [31:0] resultado;
 
 

@@ -6,15 +6,15 @@ input clk;
 input rst;
 input wren;
 input controle_pilha;
-input [15:0] din_UC;
-input [31:0] din_ULA;
+input [7:0] din_UC;
+input [7:0] din_ULA;
 
-output [15:0] dout;
+output [7:0] dout;
 output [15:0] tos;
 
-reg [31:0] pilha[15:0]; // memória
+reg [7:0] pilha[15:0]; // memória
 reg [15:0] indice, prox_indice;
-reg [15:0] dout, prox_dout;
+reg [7:0] dout, prox_dout;
 
 assign tos = indice;
 
@@ -22,7 +22,7 @@ always @(posedge clk) // Bloco Sequencial
 begin
     if (rst)
     begin
-        dout  <= 16'd0;
+        dout  <= 8'd0;
         indice <= 1'b0;
     end
     else
