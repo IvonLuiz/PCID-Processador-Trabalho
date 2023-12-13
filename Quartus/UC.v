@@ -90,6 +90,8 @@ begin
 								   estado_futuro = Goto1;
 								else if(inst[9:5] == 15 || inst[9:5] == 16 || inst[9:5] == 17 || inst[9:5] == 18 || inst[9:5] == 19)
 									estado_futuro = Condicional1;
+								else if(inst[9:5] == 20)
+								   estado_futuro = Inicio;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
 		Push_I: 				estado_futuro = Encerrar;
@@ -260,6 +262,18 @@ begin
 		Condicional3: 	
 								begin
 									opcode[4:0] = inst[9:5];
+								end
+		Encerrar: 	
+								begin
+									clock_rom = 0;
+									clock_ram = 0;
+									clock_temp1 = 0;
+									clock_pilha = 0;
+									load_temp1 = 0;
+									a_rom= 0;
+									a_ram = 0;
+									pilha_wren = 0;
+									ram_wren = 0;
 								end
 	endcase
 end
