@@ -6,15 +6,15 @@ input clk;
 input rst;
 input wren;
 input controle_pilha;
-input [7:0] din_UC;
-input [7:0] din_ULA;
+input [15:0] din_UC;
+input [31:0] din_ULA;
 
-output [7:0] dout;
+output [15:0] dout;
 output [15:0] tos;
 
-reg [7:0] pilha[15:0]; // memória
+reg [15:0] pilha[15:0]; // memória
 reg [15:0] indice, prox_indice;
-reg [7:0] dout, prox_dout;
+reg [15:0] dout, prox_dout;
 
 assign tos = indice;
 
@@ -52,12 +52,12 @@ begin
     begin
         if (indice == 0)
             begin
-                prox_dout  = pilha[indice];
+                prox_dout = pilha[indice];
                 prox_indice = indice;
             end
         else
             begin
-                prox_dout  = pilha[indice - 1'b1];
+                prox_dout = pilha[indice - 1'b1];
                 prox_indice = indice - 1'b1;
             end
     end

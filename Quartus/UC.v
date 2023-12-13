@@ -1,8 +1,8 @@
 module UC (
 	input clock,
 	input reset,
-	input [11:0] inst,
-	input [7:0] data_mem,
+	input [9:0] inst,
+	input [15:0] data_mem,
 	input controle_ula,
 
 	output reg pilha_wren,
@@ -11,7 +11,7 @@ module UC (
 	output reg clock_pilha,
 	output reg clock_rom,
 	output reg [4:0] a_rom,
-	output reg [7:0] data_pilha,
+	output reg [15:0] data_pilha,
 	output reg [4:0] a_ram,
 	output reg clock_ram,
 	output reg load_temp1,
@@ -53,7 +53,7 @@ parameter	Inicio = 5'b00000,
 				
 				
 reg [4:0] estado_atual, estado_futuro;
-reg [7:0] desvio; 
+reg [15:0] desvio; 
 
 // reg estado
 always @ (posedge clock)
@@ -74,21 +74,21 @@ begin
 	case (estado_atual)
 		Inicio: 				estado_futuro = Ler_ROM;
 		Ler_ROM: 			estado_futuro = Decodificar;
-		Decodificar: 		if(inst[15:8] == 0)
+		Decodificar: 		if(inst[9:5] == 0)
 									estado_futuro = Push;
-								else if(inst[15:8] == 1)
+								else if(inst[9:5] == 1)
 									estado_futuro = Push_I;
-								else if(inst[15:8] == 2)
+								else if(inst[9:5] == 2)
 									estado_futuro = Push_T;
-								else if(inst[15:8] == 3)
+								else if(inst[9:5] == 3)
 									estado_futuro = Pop;
-								else if(inst[15:8] == 4 || inst[15:8] == 5 || inst[15:8] == 6 || inst[15:8] == 7 || inst[15:8] == 8 || inst[15:8] == 9 || inst[15:8] == 10 || inst[15:8] == 11 || inst[15:8] == 12)
+								else if(inst[9:5] == 4 || inst[9:5] == 5 || inst[9:5] == 6 || inst[9:5] == 7 || inst[9:5] == 8 || inst[9:5] == 9 || inst[9:5] == 10 || inst[9:5] == 11 || inst[9:5] == 12)
 									estado_futuro = Aritmetica1;
-								else if(inst[15:8] == 13)
+								else if(inst[9:5] == 13)
 									estado_futuro = Not1;
-								else if(inst[15:8] == 14)
+								else if(inst[9:5] == 14)
 								   estado_futuro = Goto1;
-								else if(inst[15:8] == 15 || inst[15:8] == 16 || inst[15:8] == 17 || inst[15:8] == 18 || inst[15:8] == 19)
+								else if(inst[9:5] == 15 || inst[9:5] == 16 || inst[9:5] == 17 || inst[9:5] == 18 || inst[9:5] == 19)
 									estado_futuro = Condicional1;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
@@ -141,20 +141,20 @@ begin
 								end
 		Push:
 								begin
-									a_ram = inst[7:0];
+									a_ram = inst[4:0];
 									ram_wren = 0;
 									clock_ram = 1;
 								end
 		Push2:
 								begin
-									data_pilha [7:0] = data_mem [7:0];
+									data_pilha[15:0] = data_mem[15:0];
 									pilha_wren = 1;
 									clock_pilha = 1;
 									controle_pilha = 0;
 								end
 		Push_I:
 								begin
-									data_pilha [7:0] = inst [7:0];
+									data_pilha[15:0] = inst[4:0];
 									pilha_wren = 1;
 									clock_pilha = 1;
 									controle_pilha = 0;
@@ -162,7 +162,7 @@ begin
 		Push_T:
 								begin
 									clock_temp1 = 1;
-									opcode[4:0] = inst[11:8];
+									opcode[4:0] = inst[9:5];
 								end
 		Push_T2:
 								begin
@@ -178,7 +178,7 @@ begin
 								end
 		Pop2:
 								begin
-									a_ram = inst[7:0];
+									a_ram = inst[4:0];
 									ram_wren = 1;
 									clock_ram = 1;
 								end
@@ -205,7 +205,7 @@ begin
 								end	
 		Aritmetica5:
 								begin
-									opcode[4:0] = inst[11:8];
+									opcode[4:0] = inst[9:5];
 								end					
 		Aritmetica6:
 								begin
@@ -227,7 +227,7 @@ begin
 								end
 		Not3: 	
 								begin
-									opcode[4:0] = inst[11:8];
+									opcode[4:0] = inst[9:5];
 								end
 		Not4: 	
 								begin
@@ -238,13 +238,13 @@ begin
 								end
 		Goto1:
 								begin
-									a_ram = inst[7:0];
+									a_ram = inst[4:0];
 									ram_wren = 0;
 									clock_ram = 1;
 								end
 		Goto2:
 								begin
-									desvio[7:0] = data_mem[7:0];
+									desvio[15:0] = data_mem[15:0];
 								end
 		Condicional1:		
 								begin
@@ -259,7 +259,7 @@ begin
 								end
 		Condicional3: 	
 								begin
-									opcode[4:0] = inst[11:8];
+									opcode[4:0] = inst[9:5];
 								end
 	endcase
 end
