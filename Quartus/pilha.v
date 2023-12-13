@@ -12,7 +12,7 @@ input [31:0] din_ULA;
 output [15:0] dout;
 output [15:0] tos;
 
-reg [31:0] pilha[15:0]; // memória
+reg [15:0] pilha[15:0]; // memória
 reg [15:0] indice, prox_indice;
 reg [15:0] dout, prox_dout;
 
@@ -22,7 +22,7 @@ always @(posedge clk) // Bloco Sequencial
 begin
     if (rst)
     begin
-        dout  <= 16'd0;
+        dout  <= 8'd0;
         indice <= 1'b0;
     end
     else
@@ -52,12 +52,12 @@ begin
     begin
         if (indice == 0)
             begin
-                prox_dout  = pilha[indice];
+                prox_dout = pilha[indice];
                 prox_indice = indice;
             end
         else
             begin
-                prox_dout  = pilha[indice - 1'b1];
+                prox_dout = pilha[indice - 1'b1];
                 prox_indice = indice - 1'b1;
             end
     end
