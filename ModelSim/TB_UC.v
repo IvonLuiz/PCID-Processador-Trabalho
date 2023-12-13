@@ -7,7 +7,6 @@ reg reset;
 reg [9:0] inst;
 reg [15:0] data_mem;
 reg controle_ula;
-reg [15:0] desvio;
 wire pilha_wren, ram_wren, controle_pilha, clock_pilha, clock_rom, clock_ram, load_temp1, load_temp2;
 wire [4:0] a_rom, a_ram, opcode;
 wire [15:0] data_pilha;
@@ -35,7 +34,8 @@ UC uut (
 );
 
 
-// Gerar clock
+
+// Generate clock
 initial begin
     clock = 0;
     forever #5 clock = ~clock;
@@ -50,32 +50,40 @@ always @(posedge clock) begin
 end
 
 
+// Task para testar instruções
+task automatic testar_instrucao;
+    input [4:0] opcode;
+    input [4:0] data_value;
+    begin
+        reset = 1;
+        // inst = 10'b0;
+        // data_mem = 16'b0;
+        // controle_ula = 0;
+        #10
+        reset = 0;
+        #5
+
+        inst = {opcode, data_value};    // Concatenar instruções e dado
+        #100;
+    end
+endtask
+
+
 initial begin
-    reset = 1;
     inst = 10'b0;
     data_mem = 16'b0;
     controle_ula = 0;
-    desvio = 16'b0;
 
-    // Desativar o reset
-    reset = 0;
-
-    #5
-    // Push fodase
-    inst = 10'b0001000101;
-    #140
-    reset = 1;
-    #5
-    reset = 0;
-    #5
-    inst = 10'b0000100101;
-    // $display("ESTADO ATUAL: [%0d]", uut.estado_atual);
-
-    // Outros testes podem ser adicionados conforme necessário
-
-    $stop; // Parar a simulação
+    testar_instrucao(uut.Enviar_Opcode, 5'b00101);  
+    testar_instrucao(uut.Ler_ROM, 5'b00101);
+    testar_instrucao(uut.Push, 5'b00101);
+    testar_instrucao(uut.Push_I, 5'b00101);
+    testar_instrucao(uut.Push_T, 5'b00101);
+    testar_instrucao(uut.Aritmetica1, 5'b00101);
+    testar_instrucao(uut.Not1, 5'b00101);
+    testar_instrucao(uut.Goto1, 5'b00101);
+    testar_instrucao(uut.Condicional1, 5'b00101);
+    $stop; // Stop simulation
 end
-
-
 
 endmodule
