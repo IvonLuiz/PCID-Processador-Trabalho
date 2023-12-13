@@ -23,6 +23,74 @@ datapath uut (
     .tos(tos)
 );
 
+task automatic carregar_dado;
+    input [15:0] dado;
+    input load_in_temp1;
+    input load_in_temp2;
+
+    begin
+        din_UC = dado;
+        wren = 1;
+        #5;
+        clk_pilha = 1;
+        #5;
+        clk_pilha = 0;
+        #5;
+
+        if (load_in_temp1)
+            load_temp1 = 1;
+        else if (load_in_temp2)
+            load_temp2 = 1;
+
+        #5;
+        wren = 0;
+        #5;
+        clk_pilha = 1;
+        #5;
+        clk_temp2 = 1;
+        clk_temp1 = 1;
+
+        #5;
+        load_temp1 = 0;
+        load_temp2 = 0;
+        clk_pilha = 0;
+        clk_temp2 = 0;
+        clk_temp1 = 0;
+
+        $display("Resultado após escrita na pilha e carregar valores nos temps:");
+        $display("dout = %h", dout);
+        $display("Valor armazenado no temp1: %h", uut.SYNTHESIZED_WIRE_3);
+        $display("Valor armazenado no temp2: %h", uut.SYNTHESIZED_WIRE_4);
+        $display("Resultado da ULA: %h", uut.b2v_inst_ula.resultado);
+    end
+endtask
+
+
+
+task run_ula_test(input [4:0] op);
+begin
+    opcode = op;
+
+    #5;
+    controle_pilha = 1;
+    wren = 1;
+    #5;
+    clk_pilha = 1;
+    #5;
+    clk_pilha = 0;
+    #5
+    wren = 0;
+    #5;
+    clk_pilha = 1;
+    #5;
+    clk_pilha = 0;
+
+    // Exibir resultados após operação na ULA
+    $display("dout = %h", dout);
+    $display("Resultado da ULA: %h \n", uut.b2v_inst_ula.resultado);
+end
+endtask
+
 
 // Inicializar entradas
 initial begin
@@ -32,7 +100,6 @@ initial begin
     reset = 1;
     wren = 0;
     controle_pilha = 0;
-    din_UC = 16'h1234;
     opcode = 5'b00000;
     load_temp1 = 0;
     load_temp2 = 0;
@@ -53,61 +120,37 @@ initial begin
 
     
     // Teste 1: Carregar dado na pilha
-    wren = 1;
-    #5;
-    clk_pilha = 1;
-    #5
-    clk_pilha = 0;
-    #5
+    carregar_dado(16'd4, 1, 0);
+    carregar_dado(16'd2, 0, 1);
 
-    load_temp1 = 1;
-    load_temp2 = 1;
-    #5
-    wren = 0;
-    #5;
-    clk_pilha = 1;
-    #5;
-    clk_temp2 = 1;
-    clk_temp1 = 1;
-    
-    #5
-    load_temp1 = 0;
-    load_temp2 = 0;
-    clk_pilha = 0;
-    clk_temp2 = 0;
-    clk_temp1 = 0;
-    
 
-    // Exibir resultados após Teste 1
-    $display("Resultado após escrita na pilha e carregar valores nos temps:");
-    $display("dout = %h", dout);
-    $display("Valor armazenado no temp1: %h", uut.SYNTHESIZED_WIRE_3);
-    $display("Valor armazenado no temp1: %h", uut.SYNTHESIZED_WIRE_4);
-    $display("Resultado da ULA: %h", uut.SYNTHESIZED_WIRE_0);
-
-    din_UC = 16'h0001;
     // Teste 2: Executar operação ULA (Soma)
-    opcode = 5'b00100; // Soma
-    
-    
-    #5;
-    controle_pilha = 1;
-    wren = 1;
-    #5;
-    clk_pilha = 1;
-    #5;
-    clk_pilha = 0;
-    #5
-    wren = 0;
-    #5;
-    clk_pilha = 1;
-    #5;
-    clk_pilha = 0;
-    // Exibir resultados após operação na ULA
-    $display("Resultado apos operacao na ULA e pop na pilha com valor da ULA:");
-    $display("dout = %h", dout);
-    $display("Resultado da ULA: %h", uut.SYNTHESIZED_WIRE_0);
-    $stop; // Parar a simulação
+    $display("Resultado apos soma na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Add); // Soma
+
+
+    // Teste 3: Executar operação ULA (Subtração)
+    $display("Resultado apos subtracao na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Sub); 
+
+    $display("Resultado apos multiplicacao na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Mul); 
+
+    $display("Resultado apos divisao na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Div); 
+
+    $display("Resultado apos AND na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.And); 
+
+    $display("Resultado apos NAND na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Nand); 
+
+    $display("Resultado apos OR na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Or); 
+
+    $display("Resultado apos XOR na ULA e pop na pilha com valor da ULA:");
+    run_ula_test(uut.b2v_inst_ula.Xor); 
+
 end
 
 endmodule

@@ -7,11 +7,9 @@ reg reset;
 reg [9:0] inst;
 reg [15:0] data_mem;
 reg controle_ula;
-reg [15:0] desvio;
 wire pilha_wren, ram_wren, controle_pilha, clock_pilha, clock_rom, clock_ram, load_temp1, load_temp2;
 wire [4:0] a_rom, a_ram, opcode;
 wire [15:0] data_pilha;
-reg [4:0] value;
 
 UC uut (
     .clock(clock),
@@ -52,8 +50,8 @@ always @(posedge clock) begin
 end
 
 
-// Task to test an instruction
-task automatic test_instruction;
+// Task para testar instruções
+task automatic testar_instrucao;
     input [4:0] opcode;
     input [4:0] data_value;
     begin
@@ -61,34 +59,30 @@ task automatic test_instruction;
         // inst = 10'b0;
         // data_mem = 16'b0;
         // controle_ula = 0;
-        // desvio = 16'b0;
         #10
         reset = 0;
         #5
 
-        // Test the instruction
-        inst = {opcode, data_value};    // Concatenate instruction and data
+        inst = {opcode, data_value};    // Concatenar instruções e dado
         #100;
     end
 endtask
 
 
 initial begin
-    // reset = 1;
     inst = 10'b0;
     data_mem = 16'b0;
     controle_ula = 0;
-    desvio = 16'b0;
 
-    test_instruction(uut.Enviar_Opcode, 5'b00101);  
-    test_instruction(uut.Ler_ROM, 5'b00101);
-    test_instruction(uut.Push, 5'b00101);
-    test_instruction(uut.Push_I, 5'b00101);
-    test_instruction(uut.Push_T, 5'b00101);
-    test_instruction(uut.Aritmetica1, 5'b00101);
-    test_instruction(uut.Not1, 5'b00101);
-    test_instruction(uut.Goto1, 5'b00101);
-    test_instruction(uut.Condicional1, 5'b00101);
+    testar_instrucao(uut.Enviar_Opcode, 5'b00101);  
+    testar_instrucao(uut.Ler_ROM, 5'b00101);
+    testar_instrucao(uut.Push, 5'b00101);
+    testar_instrucao(uut.Push_I, 5'b00101);
+    testar_instrucao(uut.Push_T, 5'b00101);
+    testar_instrucao(uut.Aritmetica1, 5'b00101);
+    testar_instrucao(uut.Not1, 5'b00101);
+    testar_instrucao(uut.Goto1, 5'b00101);
+    testar_instrucao(uut.Condicional1, 5'b00101);
     $stop; // Stop simulation
 end
 
