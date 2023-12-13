@@ -52,6 +52,13 @@ refer to the applicable agreement for further details.
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
+		(pt 0 96)
+		(input)
+		(text "controle_ula" (rect 0 0 47 12)(font "Arial" ))
+		(text "controle_ula" (rect 21 91 68 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
 		(pt 224 32)
 		(output)
 		(text "pilha_wren" (rect 0 0 41 12)(font "Arial" ))
@@ -252,6 +259,31 @@ refer to the applicable agreement for further details.
 	(parameter
 		"Not4"
 		"10100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Goto1"
+		"10101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Goto2"
+		"10110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional1"
+		"10111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional2"
+		"11000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional3"
+		"11001"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
