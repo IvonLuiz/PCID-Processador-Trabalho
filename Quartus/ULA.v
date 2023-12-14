@@ -51,7 +51,7 @@ begin
 		5'b01010:
 			resultado = operando1 | operando2;
 		5'b01011:
-			resultado = operando1 ^ operando1;
+			resultado = operando1 ^ operando2;
 		5'b01100:
 			if (operando1 == operando2) begin
 				resultado = 0;
@@ -60,25 +60,25 @@ begin
 			end else begin
 				resultado = -1;
 			end
-		5'b01101:
+		Not:
 			resultado = ~operando1;
-		5'b01111:
+		If_eq:
 			if (operando1 == 0)begin
 				data_uc = 1;
 			end	
-		5'b10000:
+		If_gt:
 			if (operando1 > 0)begin
 				data_uc = 1;
 			end
-		5'b10001:
+		If_lt:
 			if (operando1 < 0)begin
 				data_uc = 1;
 			end
-		5'b10010:
+		If_ge:
 			if (operando1 >= 0)begin
 				data_uc = 1;
 			end
-		5'b10011:
+		If_le:
 			if (operando1 <= 0)begin
 				data_uc = 1;
 			end
