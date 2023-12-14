@@ -34,7 +34,6 @@ UC uut (
 );
 
 
-
 // Generate clock
 initial begin
     clock = 0;
@@ -56,34 +55,40 @@ task automatic testar_instrucao;
     input [4:0] data_value;
     begin
         reset = 1;
-        // inst = 10'b0;
-        // data_mem = 16'b0;
-        // controle_ula = 0;
+        inst = 10'b0;
+        data_mem = 16'b0;
+        controle_ula = 0;
         #10
         reset = 0;
         #5
-
+        $display("Testando %d", opcode);
         inst = {opcode, data_value};    // Concatenar instruções e dado
+
         #100;
+        $display("Resultado no inst %b", uut.inst);
     end
 endtask
 
 
 initial begin
-    inst = 10'b0;
-    data_mem = 16'b0;
-    controle_ula = 0;
+    
+    testar_instrucao(0, 5'b00000);
 
-    testar_instrucao(uut.Enviar_Opcode, 5'b00101);  
-    testar_instrucao(uut.Ler_ROM, 5'b00101);
-    testar_instrucao(uut.Push, 5'b00101);
-    testar_instrucao(uut.Push_I, 5'b00101);
-    testar_instrucao(uut.Push_T, 5'b00101);
-    testar_instrucao(uut.Aritmetica1, 5'b00101);
-    testar_instrucao(uut.Not1, 5'b00101);
-    testar_instrucao(uut.Goto1, 5'b00101);
-    testar_instrucao(uut.Condicional1, 5'b00101);
-    $stop; // Stop simulation
+    testar_instrucao(1, 5'b00000);
+
+    testar_instrucao(2, 5'b00000);
+
+    testar_instrucao(3, 5'b00000);
+
+    testar_instrucao(4, 5'b00000);
+
+    testar_instrucao(13, 5'b00000);
+
+    testar_instrucao(14, 5'b00000);
+
+    testar_instrucao(15, 5'b00000);
+
+    $stop; 
 end
 
 endmodule
