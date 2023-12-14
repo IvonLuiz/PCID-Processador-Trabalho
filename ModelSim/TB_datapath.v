@@ -117,6 +117,7 @@ begin
     // Exibir resultados após operação na ULA
     $display("Operando 1: %b", uut.b2v_inst_ula.operando1);
     $display("Data_uc da ULA binario: %b \n", uut.b2v_inst_ula.data_uc);
+
 end
 endtask
 
