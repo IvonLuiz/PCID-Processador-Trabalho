@@ -8,10 +8,10 @@ add wave -noupdate /TB_datapath/clk_temp2
 add wave -noupdate /TB_datapath/load_temp2
 add wave -noupdate /TB_datapath/load_temp1
 add wave -noupdate /TB_datapath/clk_temp1
-add wave -noupdate -radix hexadecimal /TB_datapath/din_UC
-add wave -noupdate -radix decimal /TB_datapath/opcode
-add wave -noupdate -radix hexadecimal /TB_datapath/dout
-add wave -noupdate -radix decimal /TB_datapath/tos
+add wave -noupdate /TB_datapath/din_UC
+add wave -noupdate /TB_datapath/opcode
+add wave -noupdate /TB_datapath/dout
+add wave -noupdate /TB_datapath/tos
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {70440 ps} 0}
 quietly wave cursor active 1
