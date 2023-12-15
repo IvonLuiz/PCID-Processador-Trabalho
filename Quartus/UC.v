@@ -269,6 +269,12 @@ begin
 									a_rom = a_rom + 1;
 									clock_rom = 0;
 									clock_ram = 0;
+									clock_temp1 = 0;
+									clock_pilha = 0;
+									load_temp1 = 0;
+									load_temp2 = 0;
+									pilha_wren = 0;
+									ram_wren = 0;
 								end
 	endcase
 end
