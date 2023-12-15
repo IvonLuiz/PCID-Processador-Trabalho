@@ -63,23 +63,23 @@ begin
 		Not:
 			resultado = ~operando1;
 		If_eq:
-			if (operando1 == 0)begin
+			if (operando1[15:0] == 0)begin
 				data_uc = 1;
 			end	
 		If_gt:
-			if (operando1 > 0)begin
+			if (operando1[15:0] > 0)begin
 				data_uc = 1;
 			end
 		If_lt:
-			if (operando1 < 0)begin
+			if (operando1[15:0] < 0)begin
 				data_uc = 1;
 			end
 		If_ge:
-			if (operando1 >= 0)begin
+			if (operando1[15:0] >= 0)begin
 				data_uc = 1;
 			end
 		If_le:
-			if (operando1 <= 0)begin
+			if (operando1[15:0] <= 0)begin
 				data_uc = 1;
 			end
 		default:
