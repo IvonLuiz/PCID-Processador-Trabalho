@@ -1,13 +1,11 @@
 module processador(
 	reset,
-	clock,
-	reset2
+	clock
 );
 
 
 input wire	reset;
 input wire	clock;
-input wire	reset2;
 
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
@@ -63,7 +61,7 @@ ROM	b2v_inst_ROM(
 
 UC	b2v_inst_UC(
 	.clock(clock),
-	.reset(reset2),
+	.reset(reset),
 	.controle_ula(SYNTHESIZED_WIRE_15),
 	.data_mem(SYNTHESIZED_WIRE_16),
 	.inst(SYNTHESIZED_WIRE_17),

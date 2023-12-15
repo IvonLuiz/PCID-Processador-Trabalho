@@ -15,7 +15,7 @@ reg [15:0] pilha[15:0]; // memória
 reg [15:0] indice, prox_indice;	// topo da pilha
 reg [15:0] dout, prox_dout;
 
-always @(posedge clk) // Bloco Sequencial
+always @(posedge clk or posedge rst) // Bloco Sequencial
 begin
     if (rst)
     begin
