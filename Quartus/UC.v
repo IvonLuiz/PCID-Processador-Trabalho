@@ -5,19 +5,22 @@ module UC (
 	input [15:0] data_mem,
 	input controle_ula,
 
-	output reg pilha_wren,
-	output reg ram_wren,
-	output reg controle_pilha,
-	output reg clock_pilha,
-	output reg clock_rom,
-	output reg [4:0] a_rom,
-	output reg [15:0] data_pilha,
 	output reg [4:0] a_ram,
 	output reg clock_ram,
-	output reg load_temp1,
-	output reg load_temp2,
+	output reg ram_wren,
+	output reg [4:0] a_rom,
+	output reg clock_rom,
+	
+	output reg pilha_wren,
+	output reg controle_pilha,
+	output reg clock_pilha,
+	output reg [15:0] data_pilha,
+	
 	output reg clock_temp1,
+	output reg load_temp1,
 	output reg clock_temp2,
+	output reg load_temp2,
+	
 	output reg [4:0] opcode
 );
 

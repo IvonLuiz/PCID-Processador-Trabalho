@@ -10,8 +10,7 @@ module datapath(
 	din_UC,
 	opcode,
 	data_uc,
-	dout,
-	tos
+	dout
 );
 
 
@@ -27,7 +26,6 @@ input wire	[15:0] din_UC;
 input wire	[4:0] opcode;
 output wire	data_uc;
 output wire	[15:0] dout;
-output wire	[15:0] tos;
 
 wire	[31:0] SYNTHESIZED_WIRE_0;
 wire	[15:0] SYNTHESIZED_WIRE_5;
@@ -46,8 +44,7 @@ Pilha	b2v_inst_pilha(
 	.controle_pilha(controle_pilha),
 	.din_UC(din_UC),
 	.din_ULA(SYNTHESIZED_WIRE_0),
-	.dout(SYNTHESIZED_WIRE_5),
-	.tos(tos));
+	.dout(SYNTHESIZED_WIRE_5));
 
 
 temp	b2v_inst_temp1(

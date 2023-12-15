@@ -1,4 +1,4 @@
-module Pilha (clk, rst, wren, controle_pilha, din_ULA, din_UC, dout, tos);
+module Pilha (clk, rst, wren, controle_pilha, din_ULA, din_UC, dout);
 
 // Largura da pilha = 16 e profundidade = 16
 
@@ -10,13 +10,10 @@ input [15:0] din_UC;
 input [31:0] din_ULA;
 
 output [15:0] dout;
-output [15:0] tos;
 
 reg [15:0] pilha[15:0]; // memória
-reg [15:0] indice, prox_indice;
+reg [15:0] indice, prox_indice;	// topo da pilha
 reg [15:0] dout, prox_dout;
-
-assign tos = indice;
 
 always @(posedge clk) // Bloco Sequencial
 begin

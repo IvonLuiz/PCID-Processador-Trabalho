@@ -1,33 +1,13 @@
-// Copyright (C) 2018  Intel Corporation. All rights reserved.
-// Your use of Intel Corporation's design tools, logic functions 
-// and other software and tools, and its AMPP partner logic 
-// functions, and any output files from any of the foregoing 
-// (including device programming or simulation files), and any 
-// associated documentation or information are expressly subject 
-// to the terms and conditions of the Intel Program License 
-// Subscription Agreement, the Intel Quartus Prime License Agreement,
-// the Intel FPGA IP License Agreement, or other applicable license
-// agreement, including, without limitation, that your use is for
-// the sole purpose of programming logic devices manufactured by
-// Intel and sold by Intel or its authorized distributors.  Please
-// refer to the applicable agreement for further details.
-
-// PROGRAM		"Quartus Prime"
-// VERSION		"Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
-// CREATED		"Fri Dec 15 01:08:13 2023"
-
 module processador(
+	reset,
 	clock,
-	reset_UC,
-	reset_datapath,
-	tos
+	reset2
 );
 
 
+input wire	reset;
 input wire	clock;
-input wire	reset_UC;
-input wire	reset_datapath;
-output wire	[15:0] tos;
+input wire	reset2;
 
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
@@ -53,7 +33,7 @@ wire	[9:0] SYNTHESIZED_WIRE_17;
 
 
 datapath	b2v_inst_datapath(
-	.reset(reset_datapath),
+	.reset(reset),
 	.wren(SYNTHESIZED_WIRE_0),
 	.controle_pilha(SYNTHESIZED_WIRE_1),
 	.clk_pilha(SYNTHESIZED_WIRE_2),
@@ -64,8 +44,7 @@ datapath	b2v_inst_datapath(
 	.din_UC(SYNTHESIZED_WIRE_7),
 	.opcode(SYNTHESIZED_WIRE_8),
 	.data_uc(SYNTHESIZED_WIRE_15),
-	.dout(SYNTHESIZED_WIRE_12),
-	.tos(tos));
+	.dout(SYNTHESIZED_WIRE_12));
 
 
 RAM	b2v_inst_RAM(
@@ -84,20 +63,20 @@ ROM	b2v_inst_ROM(
 
 UC	b2v_inst_UC(
 	.clock(clock),
-	.reset(reset_UC),
+	.reset(reset2),
 	.controle_ula(SYNTHESIZED_WIRE_15),
 	.data_mem(SYNTHESIZED_WIRE_16),
 	.inst(SYNTHESIZED_WIRE_17),
-	.pilha_wren(SYNTHESIZED_WIRE_0),
+	.clock_ram(SYNTHESIZED_WIRE_10),
 	.ram_wren(SYNTHESIZED_WIRE_9),
+	.clock_rom(SYNTHESIZED_WIRE_13),
+	.pilha_wren(SYNTHESIZED_WIRE_0),
 	.controle_pilha(SYNTHESIZED_WIRE_1),
 	.clock_pilha(SYNTHESIZED_WIRE_2),
-	.clock_rom(SYNTHESIZED_WIRE_13),
-	.clock_ram(SYNTHESIZED_WIRE_10),
-	.load_temp1(SYNTHESIZED_WIRE_5),
-	.load_temp2(SYNTHESIZED_WIRE_4),
 	.clock_temp1(SYNTHESIZED_WIRE_6),
+	.load_temp1(SYNTHESIZED_WIRE_5),
 	.clock_temp2(SYNTHESIZED_WIRE_3),
+	.load_temp2(SYNTHESIZED_WIRE_4),
 	.a_ram(SYNTHESIZED_WIRE_11),
 	.a_rom(SYNTHESIZED_WIRE_14),
 	.data_pilha(SYNTHESIZED_WIRE_7),
