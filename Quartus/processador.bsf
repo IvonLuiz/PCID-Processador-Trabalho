@@ -20,10 +20,38 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 112 112)
+	(rect 16 16 216 112)
 	(text "processador" (rect 5 0 76 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 75 24 92)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "reset_datapath" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "reset_datapath" (rect 21 27 111 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clock" (rect 0 0 29 19)(font "Intel Clear" (font_size 8)))
+		(text "clock" (rect 21 43 50 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "reset_UC" (rect 0 0 54 19)(font "Intel Clear" (font_size 8)))
+		(text "reset_UC" (rect 21 59 75 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "tos[15..0]" (rect 0 0 56 19)(font "Intel Clear" (font_size 8)))
+		(text "tos[15..0]" (rect 123 27 179 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
+	)
 	(drawing
-		(rectangle (rect 16 16 80 80))
+		(rectangle (rect 16 16 184 80))
 	)
 )

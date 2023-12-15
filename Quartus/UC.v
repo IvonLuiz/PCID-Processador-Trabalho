@@ -115,7 +115,7 @@ begin
 									estado_futuro = Goto1;
 								else
 									estado_futuro = Encerrar;
-		Encerrar: 		estado_futuro = Encerrar;
+		Encerrar: 		estado_futuro = Ler_ROM;
 		default: estado_futuro = Inicio;
 	endcase
 end
@@ -123,19 +123,22 @@ end
 // dec saida
 always @ (*)
 begin
-	// atribuicoes default
-	clock_rom = 0;
-	clock_ram = 0;
-	clock_temp1 = 0;
-	clock_pilha = 0;
-	load_temp1 = 0;
-	controle_pilha = 0;
-	a_rom= 0;
-	a_ram = 0;
-	pilha_wren = 0;
-	ram_wren = 0;
-	desvio = 0;
 	case (estado_atual)
+		Inicio:
+								begin
+									// atribuicoes default
+									clock_rom = 0;
+									clock_ram = 0;
+									clock_temp1 = 0;
+									clock_pilha = 0;
+									load_temp1 = 0;
+									controle_pilha = 0;
+									a_rom= 0;
+									a_ram = 0;
+									pilha_wren = 0;
+									ram_wren = 0;
+									desvio = 0;
+								end
 		Ler_ROM:				begin
 									clock_rom = 1;
 								end
@@ -260,6 +263,12 @@ begin
 		Condicional3: 	
 								begin
 									opcode[4:0] = inst[9:5];
+								end
+		Encerrar:
+								begin
+									a_rom = a_rom + 1;
+									clock_rom = 0;
+									clock_ram = 0;
 								end
 	endcase
 end
