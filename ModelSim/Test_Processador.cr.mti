@@ -5,6 +5,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	TB_ULA
 
+} {} {}} D:/Code/PCID-trab/Quartus/processador_blocos.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/processador_blocos.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module processador_blocos
+
+Top level modules:
+	processador_blocos
+
 } {} {}} D:/Code/PCID-trab/Quartus/temp.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/temp.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module temp
@@ -19,13 +26,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	TB_Processador
 
-} {} {}} D:/Code/PCID-trab/Quartus/UC.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/UC.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module UC
-
-Top level modules:
-	UC
-
 } {} {}} D:/Code/PCID-trab/ModelSim/TB_pilha.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/ModelSim/TB_pilha.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module TB_Pilha
@@ -39,13 +39,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	TB_datapath
-
-} {} {}} D:/Code/PCID-trab/Quartus/IP.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/IP.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module IP
-
-Top level modules:
-	IP
 
 } {} {}} D:/Code/PCID-trab/Quartus/ULA.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/ULA.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -63,13 +56,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity ROM
 -- Compiling architecture SYN of rom
 
-} {} {}} D:/Code/PCID-trab/Quartus/IR.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/IR.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module IR
-
-Top level modules:
-	IR
-
 } {} {}} D:/Code/PCID-trab/Quartus/RAM.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Code/PCID-trab/Quartus/RAM.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -79,12 +65,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity RAM
 -- Compiling architecture SYN of ram
 
-} {} {}} D:/Code/PCID-trab/Quartus/processador.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/processador.v
+} {} {}} D:/Code/PCID-trab/Quartus/pilha.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/pilha.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module processador
+-- Compiling module Pilha
 
 Top level modules:
-	processador
+	Pilha
 
 } {} {}} D:/Code/PCID-trab/Quartus/datapath.v {1 {vlog -work work -stats=none D:/Code/PCID-trab/Quartus/datapath.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
