@@ -34,25 +34,25 @@ begin
 	data_uc = 0;
 	case (opcode)
 		
-		5'b00010:
+		Push:
 			resultado = operando1;
-		5'b00100:
+		Add:
 			resultado = operando1 + operando2;
-		5'b00101:
+		Sub:
 			resultado = operando1 - operando2;
-		5'b00110:
+		Mul:
 			resultado = operando1 * operando2;  
-		5'b00111:
+		Div:
 			resultado = operando1 / operando2;
-		5'b01000:
+		And:
 			resultado = operando1 & operando2; 
-		5'b01001:
+		Nand:
 			resultado = ~(operando1 & operando2); 
-		5'b01010:
+		Or:
 			resultado = operando1 | operando2;
-		5'b01011:
+		Xor:
 			resultado = operando1 ^ operando2;
-		5'b01100:
+		Cmp:
 			if (operando1 == operando2) begin
 				resultado = 0;
 			end else if (operando1 > operando2) begin
@@ -63,23 +63,23 @@ begin
 		Not:
 			resultado = ~operando1;
 		If_eq:
-			if (operando1 == 0)begin
+			if (operando1[15:0] == 0)begin
 				data_uc = 1;
 			end	
 		If_gt:
-			if (operando1 > 0)begin
+			if (operando1[15:0] > 0)begin
 				data_uc = 1;
 			end
 		If_lt:
-			if (operando1 < 0)begin
+			if (operando1[15:0] < 0)begin
 				data_uc = 1;
 			end
 		If_ge:
-			if (operando1 >= 0)begin
+			if (operando1[15:0] >= 0)begin
 				data_uc = 1;
 			end
 		If_le:
-			if (operando1 <= 0)begin
+			if (operando1[15:0] <= 0)begin
 				data_uc = 1;
 			end
 		default:

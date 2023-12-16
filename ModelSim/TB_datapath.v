@@ -5,7 +5,7 @@ module TB_datapath;
 reg reset, wren, controle_pilha, clk_pilha, clk_temp2, load_temp2, load_temp1, clk_temp1;
 reg [15:0] din_UC;
 reg [4:0] opcode;
-wire [15:0] dout, tos;
+wire [15:0] dout;
 
 // Instanciar o módulo datapath
 datapath uut (
@@ -19,8 +19,7 @@ datapath uut (
     .clk_temp1(clk_temp1),
     .din_UC(din_UC),
     .opcode(opcode),
-    .dout(dout),
-    .tos(tos)
+    .dout(dout)
 );
 
 task automatic carregar_dado;
