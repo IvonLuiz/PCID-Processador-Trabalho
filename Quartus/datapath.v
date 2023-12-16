@@ -1,12 +1,13 @@
 module datapath(
 	reset,
-	wren,
-	controle_pilha,
 	clk_pilha,
 	clk_temp2,
 	load_temp2,
 	load_temp1,
 	clk_temp1,
+	push,
+	pop,
+	controle_pilha,
 	din_UC,
 	opcode,
 	data_uc,
@@ -15,13 +16,14 @@ module datapath(
 
 
 input wire	reset;
-input wire	wren;
-input wire	controle_pilha;
 input wire	clk_pilha;
 input wire	clk_temp2;
 input wire	load_temp2;
 input wire	load_temp1;
 input wire	clk_temp1;
+input wire	push;
+input wire	pop;
+input wire	controle_pilha;
 input wire	[15:0] din_UC;
 input wire	[4:0] opcode;
 output wire	data_uc;
@@ -40,7 +42,8 @@ assign	dout = SYNTHESIZED_WIRE_5;
 Pilha	b2v_inst_pilha(
 	.clk(clk_pilha),
 	.rst(reset),
-	.wren(wren),
+	.push(push),
+	.pop(pop),
 	.controle_pilha(controle_pilha),
 	.din_UC(din_UC),
 	.din_ULA(SYNTHESIZED_WIRE_0),
