@@ -2,7 +2,7 @@
 
 module TB_Pilha;
 
-reg clk, rst, wren, controle_pilha;
+reg clk, rst, push, pop, controle_pilha;
 reg [15:0] din_UC;
 reg [31:0] din_ULA;
 wire [15:0] dout, tos;
@@ -10,7 +10,7 @@ wire [15:0] dout, tos;
 integer i;
 
 // Instanciar pilha
-Pilha uut(clk, rst, wren, controle_pilha, din_ULA, din_UC, dout, tos);
+Pilha uut(clk, rst, push, pop, controle_pilha, din_ULA, din_UC, dout, tos);
 
 // Gerar clock
 initial begin
@@ -21,7 +21,8 @@ end
 // Inicializar entradas
 initial begin
     rst = 1;
-    wren = 0;
+    push = 0;
+    pop = 0;
     controle_pilha = 0;
     din_UC = 16'h0000;
     din_ULA = 32'h00000000;
@@ -33,32 +34,34 @@ initial begin
     rst = 0;
 
     // Teste 1: Escrever na pilha (Push)
-    wren = 1;
+    push = 1;
     controle_pilha = 0; // Selecionar escrita de din_UC
     din_UC = 16'd3;
     #10;
 
 
     // Teste 2: Escrever na pilha novamente (Push)
-    wren = 1;
+    push = 1;
     controle_pilha = 1; // Selecionar escrita de din_ULA
     din_ULA = 32'd2;
     #10;
     
 
     // Teste 3: Ler da pilha (Pop)
-    wren = 0;
+    push = 0;
+    pop = 1;
     #10;
 
     $display("Dout apos primeiro pop: [%0d]", dout);
 
     // Teste 4: Ler da pilha novamente (Pop)
-    wren = 0;
+    push = 0;
+    pop = 1;
     #10;
 
     $display("Dout apos segundo pop: [%0d]", dout);
 
-    $stop; // Parar a simulação
+    $stop;
 end
 
 endmodule

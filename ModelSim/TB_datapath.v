@@ -2,7 +2,7 @@
 
 module TB_datapath;
 
-reg reset, wren, controle_pilha, clk_pilha, clk_temp2, load_temp2, load_temp1, clk_temp1;
+reg reset, push, pop, controle_pilha, clk_pilha, clk_temp2, load_temp2, load_temp1, clk_temp1;
 reg [15:0] din_UC;
 reg [4:0] opcode;
 wire [15:0] dout;
@@ -10,7 +10,6 @@ wire [15:0] dout;
 // Instanciar o módulo datapath
 datapath uut (
     .reset(reset),
-    .wren(wren),
     .controle_pilha(controle_pilha),
     .clk_pilha(clk_pilha),
     .clk_temp2(clk_temp2),
@@ -19,7 +18,9 @@ datapath uut (
     .clk_temp1(clk_temp1),
     .din_UC(din_UC),
     .opcode(opcode),
-    .dout(dout)
+    .dout(dout),
+    .push(push),
+    .pop(pop)
 );
 
 task automatic carregar_dado;
@@ -29,7 +30,8 @@ task automatic carregar_dado;
 
     begin
         din_UC = dado;
-        wren = 1;
+        push = 1;
+        pop = 0;
         #5;
         clk_pilha = 1;
         #5;
@@ -42,7 +44,8 @@ task automatic carregar_dado;
             load_temp2 = 1;
 
         #5;
-        wren = 0;
+        push = 0;
+        pop = 1;
         #5;
         clk_pilha = 1;
         #5;
@@ -56,8 +59,8 @@ task automatic carregar_dado;
         clk_temp2 = 0;
         clk_temp1 = 0;
 
-        $display("Resultado após escrita na pilha e carregar valores nos temps:");
-        $display("dout = %h", dout);
+        $display("Resultado apos escrita na pilha e carregar valores nos temps:");
+        $display("dout = %b", dout);
         $display("Valor armazenado no temp1: %h", uut.SYNTHESIZED_WIRE_3);
         $display("Valor armazenado no temp2: %h", uut.SYNTHESIZED_WIRE_4);
         $display("Resultado da ULA: %h", uut.b2v_inst_ula.resultado);
@@ -72,13 +75,15 @@ begin
 
     #5;
     controle_pilha = 1;
-    wren = 1;
+    push = 1;
+    pop = 0;
     #5;
     clk_pilha = 1;
     #5;
     clk_pilha = 0;
     #5
-    wren = 0;
+    pop = 1;
+    push = 1;
     #5;
     clk_pilha = 1;
     #5;
@@ -88,7 +93,6 @@ begin
     $display("Operando 1: %b", uut.b2v_inst_ula.operando1);
     $display("Operando 2: %b", uut.b2v_inst_ula.operando2);
     
-    $display("dout = %h", dout);
     $display("Resultado da ULA hexadecimal: %h", uut.b2v_inst_ula.resultado);
     $display("Resultado da ULA binario: %b", uut.b2v_inst_ula.resultado);
     $display("Resultado da ULA decimal: %d \n", uut.b2v_inst_ula.resultado);
@@ -101,13 +105,15 @@ begin
 
     #5;
     controle_pilha = 1;
-    wren = 1;
+    push = 1;
+    pop = 0;
     #5;
     clk_pilha = 1;
     #5;
     clk_pilha = 0;
     #5
-    wren = 0;
+    pop = 1;
+    push = 1;
     #5;
     clk_pilha = 1;
     #5;
@@ -127,7 +133,8 @@ initial begin
     clk_temp1 = 0;
     clk_temp2 = 0;
     reset = 1;
-    wren = 0;
+    pop = 0;
+    push = 0;
     controle_pilha = 0;
     opcode = 5'b00000;
     load_temp1 = 0;
@@ -201,6 +208,7 @@ initial begin
     $display("Resultado apos IF_LE na ULA e pop na pilha com valor da ULA:");
     comparador_teste(uut.b2v_inst_ula.If_le); 
 
+    $stop;
 end
 
 endmodule

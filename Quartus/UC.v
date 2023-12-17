@@ -93,6 +93,8 @@ begin
 									estado_futuro = Goto1;
 								else if(inst[9:5] == 15 || inst[9:5] == 16 || inst[9:5] == 17 || inst[9:5] == 18 || inst[9:5] == 19)
 									estado_futuro = Condicional1;
+								else
+									estado_futuro = Encerrar;
 		Push:             estado_futuro = Push2;
 		Push2: 				estado_futuro = Encerrar;
 		Push_I: 				estado_futuro = Encerrar;
@@ -115,9 +117,9 @@ begin
 		Condicional1:  	estado_futuro = Condicional2;
 		Condicional2:  	estado_futuro = Condicional3;
 		Condicional3:  	if(controle_ula == 1)
-									estado_futuro = Goto1;
-								else
-									estado_futuro = Encerrar;
+							estado_futuro = Goto1;
+						else
+							estado_futuro = Encerrar;
 		Encerrar: 		estado_futuro = Ler_ROM;
 		default: estado_futuro = Inicio;
 	endcase
@@ -176,6 +178,7 @@ begin
 			clock_temp1 = 1;
 			opcode[4:0] = inst[9:5];
 		end
+
 		Push_T2:
 		begin
 			controle_pilha = 2'b01;
@@ -224,6 +227,7 @@ begin
 			clock_pilha = 0;
 			pop = 0;
 		end	
+		
 		Aritmetica5:
 		begin
 			opcode[4:0] = inst[9:5];

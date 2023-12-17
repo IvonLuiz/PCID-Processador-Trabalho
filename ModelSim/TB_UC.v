@@ -7,7 +7,7 @@ reg reset;
 reg [9:0] inst;
 reg [15:0] data_mem;
 reg controle_ula;
-wire pilha_wren, ram_wren, controle_pilha, clock_pilha, clock_rom, clock_ram, load_temp1, load_temp2;
+wire push, pop, ram_wren, controle_pilha, clock_pilha, clock_rom, clock_ram, load_temp1, load_temp2;
 wire [4:0] a_rom, a_ram, opcode;
 wire [15:0] data_pilha;
 
@@ -17,7 +17,8 @@ UC uut (
     .inst(inst),
     .data_mem(data_mem),
     .controle_ula(controle_ula),
-    .pilha_wren(pilha_wren),
+    .push(push),
+    .pop(pop),
     .ram_wren(ram_wren),
     .controle_pilha(controle_pilha),
     .clock_pilha(clock_pilha),
@@ -41,36 +42,27 @@ initial begin
 end
 
 initial begin
-    $monitor($time, "Estado_atual='%0d", uut.estado_atual);
+    $monitor("ESTADO ATUAL = %0d", uut.estado_atual);
 end
-
-// always @(posedge clock) begin
-//     $display("ESTADO ATUAL: [%0d]", uut.estado_atual);
-// end
-
 
 // Task para testar instruções
 task automatic testar_instrucao(input [4:0] opcode, input [4:0] data_value, input integer tempo);
     begin
+        $display("Testando instrucao: %d", opcode);
         // inst = 10'b0;
         data_mem = 16'b0;
         controle_ula = 0;
         #10
 
-        $display("Testando %d", opcode);
-        // $display("A_rom: %d", uut.a_rom);
         inst = {opcode, data_value};    // Concatenar instruções e dado
-        
         #tempo;
 
-        $display("Resultado no inst %b \n", uut.inst);
+        $display("Valor no inst: %b \n", uut.inst);
     end
 endtask
 
 
 initial begin
-    $monitor($time, " estado_atual='%0d", uut.estado_atual);
-    
     testar_instrucao(0, 5'b00000, 50);
 
     testar_instrucao(1, 5'b00000, 35);

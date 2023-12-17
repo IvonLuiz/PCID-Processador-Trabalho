@@ -5,7 +5,7 @@ module TB_Processador;
 reg clock;
 reg reset;
 
-processador_blocos uut (
+processador uut (
     .clock(clock),
     .reset(reset)
 );
@@ -41,9 +41,9 @@ initial begin
     reset = 1;
     #10
     reset = 0;
-    #195
+    #170
     $display("Resultado da ULA = %d", uut.b2v_inst_datapath.b2v_inst_ula.resultado);
-    // $stop; // Parar a simulação
+    // Simulacao rodará em loop eternamente, sem stop
 end
 
 endmodule
