@@ -21,7 +21,7 @@ refer to the applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 232 520 400 536)
+	(rect 240 504 408 520)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "reset" (rect 5 0 29 12)(font "Arial" ))
 	(pt 168 8)
@@ -51,289 +51,37 @@ refer to the applicable agreement for further details.
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
-(symbol
-	(rect 424 432 656 736)
-	(text "UC" (rect 5 0 21 12)(font "Arial" ))
-	(text "inst_UC" (rect 8 288 44 305)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "data_mem[15..0]" (rect 0 0 83 12)(font "Arial" ))
-		(text "data_mem[15..0]" (rect 21 27 104 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "inst[9..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "inst[9..0]" (rect 21 43 64 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "clock" (rect 0 0 25 12)(font "Arial" ))
-		(text "clock" (rect 21 59 46 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "reset" (rect 0 0 24 12)(font "Arial" ))
-		(text "reset" (rect 21 91 45 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "controle_ula" (rect 0 0 59 12)(font "Arial" ))
-		(text "controle_ula" (rect 21 75 80 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 232 32)
-		(output)
-		(text "a_ram[4..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "a_ram[4..0]" (rect 164 27 220 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
-	)
-	(port
-		(pt 232 48)
-		(output)
-		(text "clock_ram" (rect 0 0 50 12)(font "Arial" ))
-		(text "clock_ram" (rect 169 43 219 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48))
-	)
-	(port
-		(pt 232 64)
-		(output)
-		(text "ram_wren" (rect 0 0 47 12)(font "Arial" ))
-		(text "ram_wren" (rect 172 59 219 71)(font "Arial" ))
-		(line (pt 232 64)(pt 216 64))
-	)
-	(port
-		(pt 232 80)
-		(output)
-		(text "a_rom[4..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "a_rom[4..0]" (rect 164 75 220 87)(font "Arial" ))
-		(line (pt 232 80)(pt 216 80)(line_width 3))
-	)
-	(port
-		(pt 232 96)
-		(output)
-		(text "clock_rom" (rect 0 0 50 12)(font "Arial" ))
-		(text "clock_rom" (rect 169 91 219 103)(font "Arial" ))
-		(line (pt 232 96)(pt 216 96))
-	)
-	(port
-		(pt 232 112)
-		(output)
-		(text "controle_pilha" (rect 0 0 67 12)(font "Arial" ))
-		(text "controle_pilha" (rect 155 107 222 119)(font "Arial" ))
-		(line (pt 232 112)(pt 216 112))
-	)
-	(port
-		(pt 232 128)
-		(output)
-		(text "clock_pilha" (rect 0 0 54 12)(font "Arial" ))
-		(text "clock_pilha" (rect 166 123 220 135)(font "Arial" ))
-		(line (pt 232 128)(pt 216 128))
-	)
-	(port
-		(pt 232 144)
-		(output)
-		(text "push" (rect 0 0 23 12)(font "Arial" ))
-		(text "push" (rect 192 139 215 151)(font "Arial" ))
-		(line (pt 232 144)(pt 216 144))
-	)
-	(port
-		(pt 232 160)
-		(output)
-		(text "pop" (rect 0 0 17 12)(font "Arial" ))
-		(text "pop" (rect 197 155 214 167)(font "Arial" ))
-		(line (pt 232 160)(pt 216 160))
-	)
-	(port
-		(pt 232 176)
-		(output)
-		(text "data_pilha[15..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "data_pilha[15..0]" (rect 143 171 224 183)(font "Arial" ))
-		(line (pt 232 176)(pt 216 176)(line_width 3))
-	)
-	(port
-		(pt 232 192)
-		(output)
-		(text "clock_temp1" (rect 0 0 62 12)(font "Arial" ))
-		(text "clock_temp1" (rect 159 187 221 199)(font "Arial" ))
-		(line (pt 232 192)(pt 216 192))
-	)
-	(port
-		(pt 232 208)
-		(output)
-		(text "load_temp1" (rect 0 0 56 12)(font "Arial" ))
-		(text "load_temp1" (rect 164 203 220 215)(font "Arial" ))
-		(line (pt 232 208)(pt 216 208))
-	)
-	(port
-		(pt 232 224)
-		(output)
-		(text "clock_temp2" (rect 0 0 62 12)(font "Arial" ))
-		(text "clock_temp2" (rect 159 219 221 231)(font "Arial" ))
-		(line (pt 232 224)(pt 216 224))
-	)
-	(port
-		(pt 232 240)
-		(output)
-		(text "load_temp2" (rect 0 0 56 12)(font "Arial" ))
-		(text "load_temp2" (rect 164 235 220 247)(font "Arial" ))
-		(line (pt 232 240)(pt 216 240))
-	)
-	(port
-		(pt 232 256)
-		(output)
-		(text "opcode[4..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "opcode[4..0]" (rect 160 251 221 263)(font "Arial" ))
-		(line (pt 232 256)(pt 216 256)(line_width 3))
-	)
-	(parameter
-		"Inicio"
-		"00000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Ler_ROM"
-		"00001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Enviar_Opcode"
-		"00010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Decodificar"
-		"00011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Push"
-		"00100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Push2"
-		"00101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Push_I"
-		"00110"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Push_T"
-		"00111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Push_T2"
-		"01000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Pop"
-		"01001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Pop2"
-		"01010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica1"
-		"01011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica2"
-		"01100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica3"
-		"01101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica4"
-		"01110"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica5"
-		"01111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Aritmetica6"
-		"10000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Not1"
-		"10001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Not2"
-		"10010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Not3"
-		"10011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Not4"
-		"10100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Goto1"
-		"10101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Goto2"
-		"10110"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Condicional1"
-		"10111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Condicional2"
-		"11000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Condicional3"
-		"11001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"Encerrar"
-		"11111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
+(pin
+	(output)
+	(rect 992 552 1168 568)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "data_uc" (rect 90 0 128 12)(font "Arial" ))
+	(pt 0 8)
 	(drawing
-		(rectangle (rect 16 16 216 288))
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (parameter)(rect 656 -104 872 432))
+)
+(pin
+	(output)
+	(rect 992 536 1168 552)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "dout[15..0]" (rect 90 0 143 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
 )
 (symbol
 	(rect 752 512 952 752)
@@ -572,6 +320,290 @@ refer to the applicable agreement for further details.
 		(line (pt 0 0)(pt 0 0))
 	)
 )
+(symbol
+	(rect 424 432 656 736)
+	(text "UC" (rect 5 0 21 12)(font "Arial" ))
+	(text "inst_UC" (rect 8 288 48 300)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "data_mem[15..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "data_mem[15..0]" (rect 21 27 104 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "inst[9..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "inst[9..0]" (rect 21 43 64 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 59 46 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "reset" (rect 0 0 24 12)(font "Arial" ))
+		(text "reset" (rect 21 75 45 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "controle_ula" (rect 0 0 59 12)(font "Arial" ))
+		(text "controle_ula" (rect 21 91 80 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "a_ram[4..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "a_ram[4..0]" (rect 164 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "clock_ram" (rect 0 0 50 12)(font "Arial" ))
+		(text "clock_ram" (rect 169 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "ram_wren" (rect 0 0 47 12)(font "Arial" ))
+		(text "ram_wren" (rect 172 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "a_rom[4..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "a_rom[4..0]" (rect 164 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 3))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "clock_rom" (rect 0 0 50 12)(font "Arial" ))
+		(text "clock_rom" (rect 169 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96))
+	)
+	(port
+		(pt 232 112)
+		(output)
+		(text "controle_pilha" (rect 0 0 67 12)(font "Arial" ))
+		(text "controle_pilha" (rect 155 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "clock_pilha" (rect 0 0 54 12)(font "Arial" ))
+		(text "clock_pilha" (rect 166 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "push" (rect 0 0 23 12)(font "Arial" ))
+		(text "push" (rect 192 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "pop" (rect 0 0 17 12)(font "Arial" ))
+		(text "pop" (rect 197 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "data_pilha[15..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "data_pilha[15..0]" (rect 143 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 3))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "clock_temp1" (rect 0 0 62 12)(font "Arial" ))
+		(text "clock_temp1" (rect 159 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "load_temp1" (rect 0 0 56 12)(font "Arial" ))
+		(text "load_temp1" (rect 164 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "clock_temp2" (rect 0 0 62 12)(font "Arial" ))
+		(text "clock_temp2" (rect 159 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224))
+	)
+	(port
+		(pt 232 240)
+		(output)
+		(text "load_temp2" (rect 0 0 56 12)(font "Arial" ))
+		(text "load_temp2" (rect 164 235 211 247)(font "Arial" ))
+		(line (pt 232 240)(pt 216 240))
+	)
+	(port
+		(pt 232 256)
+		(output)
+		(text "opcode[4..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "opcode[4..0]" (rect 160 251 211 263)(font "Arial" ))
+		(line (pt 232 256)(pt 216 256)(line_width 3))
+	)
+	(parameter
+		"Inicio"
+		"00000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Ler_ROM"
+		"00001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Enviar_Opcode"
+		"00010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Decodificar"
+		"00011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Push"
+		"00100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Push2"
+		"00101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Push_I"
+		"00110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Push_T"
+		"00111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Push_T2"
+		"01000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Pop"
+		"01001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Pop2"
+		"01010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica1"
+		"01011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica2"
+		"01100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica3"
+		"01101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica4"
+		"01110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica5"
+		"01111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Aritmetica6"
+		"10000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Not1"
+		"10001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Not2"
+		"10010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Not3"
+		"10011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Not4"
+		"10100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Goto1"
+		"10101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Goto2"
+		"10110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional1"
+		"10111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional2"
+		"11000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Condicional3"
+		"11001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Encerrar"
+		"11111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 216 288))
+	)
+	(annotation_block (parameter)(rect 656 -104 872 432))
+)
 (connector
 	(pt 752 544)
 	(pt 656 544)
@@ -613,10 +645,6 @@ refer to the applicable agreement for further details.
 	(pt 656 688)
 	(pt 752 688)
 	(bus)
-)
-(connector
-	(pt 952 560)
-	(pt 968 560)
 )
 (connector
 	(pt 424 512)
@@ -686,11 +714,6 @@ refer to the applicable agreement for further details.
 	(pt 704 496)
 )
 (connector
-	(pt 952 544)
-	(pt 976 544)
-	(bus)
-)
-(connector
 	(pt 736 416)
 	(pt 704 416)
 )
@@ -721,11 +744,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 752 704)
 	(pt 744 704)
-)
-(connector
-	(pt 976 544)
-	(pt 976 360)
-	(bus)
 )
 (connector
 	(pt 976 360)
@@ -760,35 +778,56 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 968 560)
-	(pt 968 760)
-)
-(connector
-	(pt 408 760)
-	(pt 968 760)
-)
-(connector
-	(pt 408 512)
-	(pt 408 760)
-)
-(connector
 	(pt 744 768)
 	(pt 744 704)
 )
 (connector
-	(pt 744 768)
-	(pt 416 768)
+	(pt 976 544)
+	(pt 976 360)
+	(bus)
+)
+(connector
+	(pt 952 544)
+	(pt 976 544)
+	(bus)
+)
+(connector
+	(pt 976 544)
+	(pt 992 544)
+	(bus)
+)
+(connector
+	(pt 968 560)
+	(pt 968 760)
+)
+(connector
+	(pt 952 560)
+	(pt 968 560)
+)
+(connector
+	(pt 968 560)
+	(pt 992 560)
 )
 (connector
 	(pt 416 528)
-	(pt 416 768)
+	(pt 416 760)
 )
 (connector
-	(pt 400 528)
-	(pt 416 528)
-)
-(connector
-	(pt 416 528)
 	(pt 424 528)
+	(pt 416 528)
 )
-(junction (pt 416 528))
+(connector
+	(pt 416 760)
+	(pt 968 760)
+)
+(connector
+	(pt 408 768)
+	(pt 744 768)
+)
+(connector
+	(pt 408 768)
+	(pt 408 512)
+)
+(junction (pt 976 544))
+(junction (pt 968 560))
+(junction (pt 408 512))

@@ -1,4 +1,30 @@
-# Generated SDC file for processador_blocos module
+## Generated SDC file "processador.sdc"
+
+## Copyright (C) 2018  Intel Corporation. All rights reserved.
+## Your use of Intel Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Intel Program License 
+## Subscription Agreement, the Intel Quartus Prime License Agreement,
+## the Intel FPGA IP License Agreement, or other applicable license
+## agreement, including, without limitation, that your use is for
+## the sole purpose of programming logic devices manufactured by
+## Intel and sold by Intel or its authorized distributors.  Please
+## refer to the applicable agreement for further details.
+
+
+## VENDOR  "Altera"
+## PROGRAM "Quartus Prime"
+## VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
+
+## DATE    "Sun Dec 17 13:06:47 2023"
+
+##
+## DEVICE  "EP4CE6E22C6"
+##
+
 
 #**************************************************************
 # Time Information
@@ -6,71 +32,77 @@
 
 set_time_format -unit ns -decimal_places 3
 
+
+
 #**************************************************************
 # Create Clock
 #**************************************************************
-create_clock -period 10 [get_ports clock] -name clk_in
-create_clock -period 10 [get_ports clk_pilha] -name clk_pilha
+
+create_clock -name {clk_in} -period 10.000 -waveform { 0.000 5.000 } [get_ports {clock}]
+
+
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+
+
 
 #**************************************************************
 # Set Input Delay
 #**************************************************************
 
-# Assuming some input delay, adjust as needed
-set_input_delay -clock [get_clocks clk_in] -min 0.5 [get_ports reset]
-set_input_delay -clock [get_clocks clk_in] -max 1.0 [get_ports reset]
+set_input_delay -add_delay  -clock [get_clocks {clk_in}]  1.000 [get_ports {reset}]
+
 
 #**************************************************************
 # Set Output Delay
 #**************************************************************
 
-# Assuming some output delay, adjust as needed
-set_output_delay -clock [get_clocks clk_in] -min 0.5 [get_pins b2v_inst_datapath/dout]
-set_output_delay -clock [get_clocks clk_in] -max 1.0 [get_pins b2v_inst_datapath/dout]
+
 
 #**************************************************************
 # Set Clock Groups
 #**************************************************************
 
-# Assuming synchronous design, adjust as needed
-# set_clock_groups -asynchronous -group [get_clocks clk_in] -group [get_clocks -all -exclude [get_clocks clk_in]]
+
 
 #**************************************************************
 # Set False Path
 #**************************************************************
 
-# Assuming no false path constraints, add as needed
-set_false_path -from [get_pins b2v_inst_datapath/din_UC] -to [get_pins b2v_inst_UC/data_pilha]
+
 
 #**************************************************************
 # Set Multicycle Path
 #**************************************************************
 
-# Assuming no multicycle path constraints, add as needed
-set_multicycle_path -from [get_pins b2v_inst_UC/data_pilha] -to [get_pins b2v_inst_datapath/din_UC] 2 -setup
-set_multicycle_path -from [get_pins b2v_inst_UC/data_pilha] -to [get_pins b2v_inst_datapath/din_UC] 1 -hold
+
 
 #**************************************************************
 # Set Maximum Delay
 #**************************************************************
 
-# Assuming no maximum delay constraints, add as needed
-set_max_delay -from [get_ports reset] -to [get_pins b2v_inst_UC/data_pilha] 5.0
+
 
 #**************************************************************
 # Set Minimum Delay
 #**************************************************************
 
-# Assuming no minimum delay constraints, add as needed
-set_min_delay -from [get_ports reset] -to [get_pins b2v_inst_UC/data_pilha] 2.0
+
 
 #**************************************************************
 # Set Input Transition
 #**************************************************************
 
-# Assuming no input transition constraints, add as needed
-set_input_transition -clock [get_clocks clk_in] -max 2.0 [get_ports reset]
-
-# #**************************************************************
-# # End of SDC file
-# #**************************************************************
