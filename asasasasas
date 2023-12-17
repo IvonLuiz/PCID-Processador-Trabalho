@@ -1,0 +1,95 @@
+[33mcommit 1f310de863faed5281e5ac86f8bb55737c9f5087[m[33m ([m[1;36mHEAD -> [m[1;32mMiguelatualizacao[m[33m)[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Dec 9 00:21:48 2023 -0300
+
+    TestBenchs para datapath
+
+[33mcommit 650018852d36a7fe5bdd0510f2bdc4a24149f12e[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Dec 9 00:15:51 2023 -0300
+
+    Correções
+
+[33mcommit c3094ef3f780ad3a5c0dd32916be8ef2bb46c6a5[m[33m ([m[1;31morigin/Miguelatualizacao[m[33m)[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Fri Dec 8 01:03:43 2023 -0300
+
+    Creating block diagram of processor
+
+[33mcommit 3eb6483e1af1cd807cbe821dca95d221646e8812[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Fri Dec 8 01:01:12 2023 -0300
+
+    Correcting inputs, outputs of blocks
+
+[33mcommit 0238f73c654483d15e949c0a036b241cc97ba15d[m
+Author: Miguel.Angelo <migsilva95@gmail.com>
+Date:   Thu Dec 7 11:21:53 2023 -0300
+
+    atualizando
+
+[33mcommit d74dcd2339425a3c8763b4756fc434edb949ee71[m
+Author: Miguel.Angelo <migsilva95@gmail.com>
+Date:   Mon Dec 4 17:34:24 2023 -0300
+
+    oi
+
+[33mcommit 55a311734b372f99c0626201b25308e45e9ca0a3[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sun Dec 3 22:36:28 2023 -0300
+
+    Rest of the processor project
+
+[33mcommit 3a794d48943c97a1482ac39ce908b9fa15cfbf68[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sun Nov 26 05:14:28 2023 -0300
+
+    Datapath created
+
+[33mcommit 2b23d9e59537fea6d4206cb6815a3e122fbe0485[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sun Nov 26 05:10:41 2023 -0300
+
+    Mudança da lógica da pilha
+
+[33mcommit acf9d24918ea39d7d37a5dbb81bcebcb30812757[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 11:13:12 2023 -0300
+
+    Creating temp register
+
+[33mcommit 9b0b145cb3eea315791457ca795e1b63348d79e9[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 11:12:50 2023 -0300
+
+    Bugs fixed
+
+[33mcommit 1087f3d91ff71e35f145e5e1437cfa86f2046b8c[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 10:23:52 2023 -0300
+
+    Creating stack
+
+[33mcommit a666ab16b06d0670d874018562ffc97f6a05010c[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 10:23:44 2023 -0300
+
+    Creating ULA
+
+[33mcommit 249460025c9ae5fd7f22a647cc0db5a4851a699f[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 09:13:42 2023 -0300
+
+    ModelSim Folder
+
+[33mcommit f0c1bf839f1f096f5d4b01f81cfa69c656d58dc4[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 09:09:36 2023 -0300
+
+    IP e IR implementados
+
+[33mcommit a4c37f4175380bb997bbce3da891947dd41d39d3[m
+Author: IvonLuiz <ivonluizgarcia@gmail.com>
+Date:   Sat Nov 25 09:02:32 2023 -0300
+
+    first commit

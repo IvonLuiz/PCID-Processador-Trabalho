@@ -16,8 +16,9 @@ module temp (clk, loadTemp, entrada, saida, reset);
             if (reset) begin
                 // Reset do registrador
                 tempReg <= 8'b00000000;
+                saida <= 8'b00000000;
             end else begin
-                if ( loadTemp == 1) begin
+                if (loadTemp == 1) begin
                     saida <= entrada;
                     tempReg <= entrada;
                 end
